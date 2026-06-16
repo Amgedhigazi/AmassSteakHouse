@@ -1,0 +1,312 @@
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --dark: #1A1208;
+    --dark2: #231A0A;
+    --charcoal: #2E2210;
+    --cream: #F5EDD8;
+    --muted: #9A8060;
+    --red: #8B1A1A;
+  }
+  body { background: var(--dark); color: var(--cream); font-family: Georgia, 'Times New Roman', serif; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,18,8,0.97);
+    border-bottom: 1px solid #3A2A10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo img { height: 44px; border-radius: 4px; }
+  .nav-logo span { font-size: 15px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  .hero {
+    position: relative; height: 480px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: var(--dark2);
+  }
+  .hero-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.38; filter: brightness(0.7);
+  }
+  .hero-overlay {
+    position: relative; z-index: 1; padding: 0 2rem;
+  }
+  .hero-tagline {
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-family: Arial, sans-serif; margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: 52px; color: #fff; line-height: 1.1; margin-bottom: 1.2rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+  .hero-title span { color: var(--gold); }
+  .hero-sub {
+    font-size: 15px; color: #C8B89A; max-width: 520px; margin: 0 auto 2rem;
+    line-height: 1.7; font-family: Arial, sans-serif;
+  }
+  .btn-gold {
+    display: inline-block; padding: 12px 32px;
+    border: 1px solid var(--gold); color: var(--gold);
+    text-decoration: none; font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-family: Arial, sans-serif;
+    transition: all 0.25s; cursor: pointer; background: transparent;
+  }
+  .btn-gold:hover { background: var(--gold); color: var(--dark); }
+
+  .section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-family: Arial, sans-serif; margin-bottom: 0.6rem;
+  }
+  .section-title { font-size: 32px; color: #fff; margin-bottom: 0.5rem; }
+  .section-divider {
+    width: 48px; height: 2px; background: var(--gold); margin: 1rem 0 2rem;
+  }
+  .section-desc { color: #B0987A; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.7; max-width: 600px; margin-bottom: 2rem; }
+
+  .meal-tabs {
+    display: flex; gap: 0; border: 1px solid #3A2A10; margin-bottom: 2.5rem;
+    width: fit-content;
+  }
+  .meal-tab {
+    padding: 10px 22px; font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; font-family: Arial, sans-serif;
+    background: transparent; color: var(--muted); border: none;
+    cursor: pointer; border-right: 1px solid #3A2A10; transition: all 0.2s;
+  }
+  .meal-tab:last-child { border-right: none; }
+  .meal-tab.active, .meal-tab:hover { background: var(--gold); color: var(--dark); }
+
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .menu-card {
+    background: var(--dark2); border: 1px solid #3A2A10; overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .menu-card:hover { border-color: var(--gold); }
+  .menu-card img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.9); }
+  .menu-card-body { padding: 1.25rem; }
+  .menu-cat {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-family: Arial, sans-serif; margin-bottom: 6px;
+  }
+  .menu-name { font-size: 18px; color: #fff; margin-bottom: 8px; }
+  .menu-desc { font-size: 13px; color: #9A8060; font-family: Arial, sans-serif; line-height: 1.6; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .about-badge {
+    position: absolute; bottom: -1rem; right: -1rem;
+    background: var(--gold); color: var(--dark);
+    padding: 1.2rem 1.5rem; text-align: center;
+  }
+  .about-badge strong { display: block; font-size: 32px; }
+  .about-badge span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-family: Arial, sans-serif; }
+
+  .info-bar {
+    background: var(--charcoal); border-top: 1px solid #3A2A10; border-bottom: 1px solid #3A2A10;
+    padding: 2rem;
+  }
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
+  .info-item i { font-size: 24px; color: var(--gold); display: block; margin-bottom: 10px; }
+  .info-item strong { display: block; color: #fff; font-family: Arial, sans-serif; font-size: 14px; margin-bottom: 4px; }
+  .info-item span { color: var(--muted); font-family: Arial, sans-serif; font-size: 13px; }
+
+  .highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #3A2A10; }
+  .highlight-item { background: var(--dark2); padding: 2rem 1.5rem; text-align: center; }
+  .highlight-num { font-size: 40px; color: var(--gold); display: block; }
+  .highlight-label { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-family: Arial, sans-serif; }
+
+  footer {
+    background: #0E0A04; border-top: 1px solid #3A2A10; padding: 3rem 2rem; text-align: center;
+  }
+  .footer-logo { font-size: 22px; color: var(--gold); margin-bottom: 0.5rem; }
+  .footer-loc { font-size: 13px; color: var(--muted); font-family: Arial, sans-serif; margin-bottom: 1rem; line-height: 1.6; }
+  .footer-contact { font-size: 13px; color: var(--cream); font-family: Arial, sans-serif; margin-bottom: 0.3rem; }
+  .footer-copy { font-size: 11px; color: #5A4A30; font-family: Arial, sans-serif; margin-top: 2rem; letter-spacing: 0.1em; }
+  hr.gold-hr { border: none; border-top: 1px solid #3A2A10; margin: 2rem 0; }
+
+  @media (max-width: 700px) {
+    .hero-title { font-size: 32px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .highlights { grid-template-columns: repeat(2, 1fr); }
+    .info-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .meal-tabs { flex-wrap: wrap; }
+  }
+</style>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://amgedhigazi.github.io/AmassSteakHouse/img/Logo.png" alt="Aama's Steak House logo" onerror="this.style.display='none'">
+    <span>Aama's Steak House</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="https://www.facebook.com/Aamas-steak-House-1561715920733862/" target="_blank">Reserve</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <img src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC05190.jpg" class="hero-img" alt="Steak dish">
+  <div class="hero-overlay">
+    <p class="hero-tagline">Muscat, Oman — Al Madina Plaza</p>
+    <h1 class="hero-title">Where Quality<br>Meets the <span>Table</span></h1>
+    <p class="hero-sub">Premium meats sourced from the finest natural pastures, prepared with care from farm to table. Welcome to Aama's Steak House.</p>
+    <a href="#menu" class="btn-gold">Explore the Menu</a>
+  </div>
+</section>
+
+<div class="highlights">
+  <div class="highlight-item">
+    <span class="highlight-num">7</span>
+    <span class="highlight-label">Menu Categories</span>
+  </div>
+  <div class="highlight-item">
+    <span class="highlight-num">20+</span>
+    <span class="highlight-label">Dishes</span>
+  </div>
+  <div class="highlight-item">
+    <span class="highlight-num">15+</span>
+    <span class="highlight-label">Years Experience</span>
+  </div>
+  <div class="highlight-item">
+    <span class="highlight-num">1</span>
+    <span class="highlight-label">Unforgettable Evening</span>
+  </div>
+</div>
+
+<div id="menu" style="background: var(--dark);">
+  <div class="section">
+    <p class="section-eyebrow">What we serve</p>
+    <h2 class="section-title">Our Menu</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Complement your meal with our homemade irresistible desserts and beverages. Just enjoy the taste.</p>
+
+    <div class="meal-tabs">
+      <button class="meal-tab active" onclick="filterMenu('all',this)">All</button>
+      <button class="meal-tab" onclick="filterMenu('appetizer',this)">Appetizers</button>
+      <button class="meal-tab" onclick="filterMenu('seafood',this)">Sea Food</button>
+      <button class="meal-tab" onclick="filterMenu('grill',this)">Grill</button>
+      <button class="meal-tab" onclick="filterMenu('dessert',this)">Desserts</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-grid">
+    <div class="info-item">
+      <i class="ti ti-clock" aria-hidden="true"></i>
+      <strong>Opening Hours</strong>
+      <span>Mon–Sat: 3:00 PM – 10:00 PM<br>Friday: 5:00 PM – 10:00 PM</span>
+    </div>
+    <div class="info-item">
+      <i class="ti ti-map-pin" aria-hidden="true"></i>
+      <strong>Location</strong>
+      <span>Al Bashair St. 114<br>Al Madina Plaza, Muscat, Oman</span>
+    </div>
+    <div class="info-item">
+      <i class="ti ti-phone" aria-hidden="true"></i>
+      <strong>Reservations</strong>
+      <span>+968 9232 2927<br>+968 9762 0155</span>
+    </div>
+  </div>
+</div>
+
+<div id="about" style="background: var(--dark2);">
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC_4662.jpg" class="about-img" alt="Restaurant interior">
+        <div class="about-badge">
+          <strong>100%</strong>
+          <span>Premium Meat</span>
+        </div>
+      </div>
+      <div>
+        <p class="section-eyebrow">Our story</p>
+        <h2 class="section-title">An Experience Beyond the Meal</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc" style="margin-bottom: 1.2rem;">
+          At Aama's, we sought to combine the finest food ingredients with the best location in the city of Muscat — for a day full of vigor and vitality.
+        </p>
+        <p class="section-desc">
+          It is a comprehensive experience in terms of food taste, delicious desserts, and the aroma of our coffee. We are committed to quality, freshness, and your satisfaction.
+        </p>
+        <a href="https://www.facebook.com/pages/category/Steakhouse/Aamas-steak-House-1561715920733862/" target="_blank" class="btn-gold" style="margin-top: 1.5rem;">Visit Our Facebook</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="visit">
+  <div class="footer-logo">Aama's Steak House</div>
+  <hr class="gold-hr" style="max-width: 60px; margin: 1rem auto; border-color: var(--gold);">
+  <p class="footer-loc">Madinat Sultan Qaboos, Muscat, Oman<br>Al Bashair St. 114, Al Madina Plaza</p>
+  <p class="footer-contact">📞 +968 9232 2927 &nbsp;|&nbsp; +968 9762 0155</p>
+  <p class="footer-contact">✉️ aamas.steakhouse@gmail.com</p>
+  <p class="footer-copy">© Aama's Steak House — All rights reserved</p>
+</footer>
+
+<script>
+const BASE = 'https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/';
+const menuItems = [
+  { cat: 'appetizer', name: 'Finger Steaks', desc: 'Beef strips encrusted with our chef\'s special herb & pepper, served with green salad & mustard dip.', img: BASE + 'DSC05450.jpg' },
+  { cat: 'appetizer', name: 'Nachos', desc: 'Homemade tortilla nachos topped with melted cheddar, sour cream, jalapeño, tomato coriander salsa & guacamole. Add minced beef or chicken.', img: BASE + 'DSC05554.jpg' },
+  { cat: 'seafood', name: 'Atlantic Salmon', desc: 'Dill herb-marinated salmon served with seasonal grilled veg, French fries, or mashed potato. Choice of creamy mushroom, garlic, or pepper sauce.', img: BASE + 'DSC04828.jpg' },
+  { cat: 'seafood', name: 'Fish & Chips', desc: 'Crumbed fried fish fillet served with tartar sauce, French fries & side salad.', img: BASE + 'DSC_3761.jpg' },
+  { cat: 'grill', name: 'T-Bone Steak', desc: 'Served with seasonal grilled or sautéed veg, French fries, jacket potato or mashed potato. Choice of creamy mushroom, garlic or pepper sauce.', img: BASE + 'DSC05190.jpg' },
+  { cat: 'grill', name: 'Chicken Mo', desc: 'Our special breaded grilled chicken, paired with our own mushroom onion sauce.', img: BASE + 'DSC_4258.jpg' },
+  { cat: 'dessert', name: "Aama's Brownie Blast", desc: 'Warm chocolate brownie served with vanilla ice cream, topped with nuts. The finest choice on our dessert menu.', img: BASE + 'DSC04969.JPG' },
+  { cat: 'dessert', name: 'Crème Caramel', desc: 'Aama\'s crème caramel served with vanilla ice cream and topped with nuts. A light, elegant finish after a delicious meal.', img: BASE + 'DSC04929.JPG' },
+];
+
+function renderCards(items) {
+  const grid = document.getElementById('menuGrid');
+  grid.innerHTML = items.map(item => `
+    <div class="menu-card" data-cat="${item.cat}">
+      <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://amgedhigazi.github.io/AmassSteakHouse/img/Logo.png'">
+      <div class="menu-card-body">
+        <p class="menu-cat">${item.cat}</p>
+        <h3 class="menu-name">${item.name}</h3>
+        <p class="menu-desc">${item.desc}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterMenu(cat, btn) {
+  document.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = cat === 'all' ? menuItems : menuItems.filter(i => i.cat === cat);
+  renderCards(filtered);
+}
+
+renderCards(menuItems);
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if(href && href.startsWith('#')) {
+      e.preventDefault();
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+      const el = document.querySelector(href);
+      if(el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
