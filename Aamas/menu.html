@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Aama's Steak House</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="../index.html">
+    <img src="https://amgedhigazi.github.io/AmassSteakHouse/img/Logo.png" alt="Aama's logo">
+    <span class="nav-brand-name">Aama's Steak House</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="./menu.html" class="active">Menu</a></li>
+    <li><a href="./services.html">Services</a></li>
+    <li><a href="./team.html">Team</a></li>
+    <li><a href="./reservation.html" class="nav-reserve">Reservation</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <img src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC05190.jpg" class="page-hero-bg" alt="Menu">
+  <div class="page-hero-content">
+    <p class="page-hero-pre">Aama's Steak House</p>
+    <h1 class="page-hero-title">Our Menu</h1>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section alt-bg" style="padding: 2.5rem 2rem;">
+  <div class="section-inner" style="text-align: center;">
+    <p class="section-desc" style="max-width: 700px; margin: 0 auto;">Our valued guests — this menu complements your delicious food with our homemade irresistible desserts and beverages. Just enjoy the taste.</p>
+  </div>
+</section>
+
+<!-- MENU WITH TABS -->
+<section class="section">
+  <div class="section-inner">
+    <p class="eyebrow">What we serve</p>
+    <h2 class="section-title">Full Menu</h2>
+    <div class="gold-rule"></div>
+
+    <div class="tab-row" id="tabRow">
+      <button class="tab-btn active" onclick="filter('all', this)">All</button>
+      <button class="tab-btn" onclick="filter('appetizer', this)">Appetizers</button>
+      <button class="tab-btn" onclick="filter('soup', this)">Soups</button>
+      <button class="tab-btn" onclick="filter('seafood', this)">Sea Food</button>
+      <button class="tab-btn" onclick="filter('grill', this)">Steaks & Grill</button>
+      <button class="tab-btn" onclick="filter('poultry', this)">Poultry</button>
+      <button class="tab-btn" onclick="filter('chiff', this)">Chef's Plate</button>
+      <button class="tab-btn" onclick="filter('dessert', this)">Desserts & Drinks</button>
+    </div>
+
+    <div class="cards-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- PROMO BANNERS (the 4 event images from original) -->
+<section class="section alt-bg">
+  <div class="section-inner">
+    <p class="eyebrow">Join Us For</p>
+    <h2 class="section-title">Meals & Events</h2>
+    <div class="gold-rule"></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+      <div class="card">
+        <img class="card-img" src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC_1629.jpg" alt="Breakfast">
+        <div class="card-body"><span class="card-tag">8:00 AM – 11:00 AM</span><h3 class="card-title">Breakfast</h3></div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC04804.jpg" alt="Lunch">
+        <div class="card-body"><span class="card-tag">12:00 PM – 3:00 PM</span><h3 class="card-title">Lunch</h3></div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC05387.jpg" alt="Dinner">
+        <div class="card-body"><span class="card-tag">6:00 PM – 10:00 PM</span><h3 class="card-title">Dinner</h3></div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/DSC05693.JPG" alt="Snacks">
+        <div class="card-body"><span class="card-tag">All Day</span><h3 class="card-title">Snacks & Combo</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-grid">
+    <div>
+      <span class="info-icon">🕒</span>
+      <span class="info-label">Opening Hours</span>
+      <span class="info-val">Mon – Sat: 3:00 PM – 10:00 PM<br>Friday: 5:00 PM – 10:00 PM</span>
+    </div>
+    <div>
+      <span class="info-icon">📍</span>
+      <span class="info-label">Location</span>
+      <span class="info-val">Al Bashair St. 114<br>Al Madina Plaza, Muscat, Oman</span>
+    </div>
+    <div>
+      <span class="info-icon">📞</span>
+      <span class="info-label">Reservations</span>
+      <span class="info-val">+968 9232 2927<br>+968 9762 0155</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-logo">Aama's Steak House</p>
+    <p class="footer-tagline">Where the Food You Like Awaits</p>
+    <div class="footer-rule"></div>
+    <p class="footer-address">
+      Madinat Sultan Qaboos, Muscat, Oman — Al Bashair St. 114, Al Madina Plaza<br>
+      📞 +968 9232 2927 &nbsp;|&nbsp; +968 9762 0155 &nbsp;|&nbsp; ✉️ aamas.steakhouse@gmail.com<br>
+      <a href="https://www.facebook.com/Aamas-steak-House-1561715920733862/" target="_blank">Visit us on Facebook →</a>
+    </p>
+    <p class="footer-copy">© Aama's Steak House. Photography & Web Design by Amged Higazi.</p>
+  </div>
+</footer>
+
+<script>
+const BASE = 'https://amgedhigazi.github.io/AmassSteakHouse/img/mz fotos to print/';
+const items = [
+  { cat:'appetizer', name:'Finger Steaks', desc:'Beef strips encrusted with our chef\'s special herb & pepper, served with green salad & mustard dip.', img: BASE+'DSC05450.jpg' },
+  { cat:'appetizer', name:'Nachos', desc:'Homemade tortilla nachos topped with melted cheddar, sour cream, jalapeño, tomato coriander salsa & guacamole. Add minced beef or chicken.', img: BASE+'DSC05554.jpg' },
+  { cat:'soup', name:'Soup of the Day', desc:'Wholesome bowl of fresh soup prepared daily. Ask for the soup of the day.', img: BASE+'DSC04828.jpg' },
+  { cat:'soup', name:'Cream of Mushroom', desc:'Rich and velvety cream of mushroom soup, prepared fresh in house.', img: BASE+'DSC_3761.jpg' },
+  { cat:'soup', name:'Vegetable Minestrone', desc:'Hearty Italian-style vegetable minestrone, full of flavour.', img: BASE+'DSC04804.jpg' },
+  { cat:'soup', name:'Tom Kha Gai', desc:'Thai-style coconut chicken soup with aromatic herbs and spices.', img: BASE+'DSC05387.jpg' },
+  { cat:'soup', name:'French Onion Soup', desc:'Classic French onion soup with a gratinéed cheese crust.', img: BASE+'DSC_1629.jpg' },
+  { cat:'soup', name:'Cumin Garlic Coriander Lintel', desc:'Warming spiced lentil soup with garlic, cumin, and coriander.', img: BASE+'AMG_5371.JPG' },
+  { cat:'seafood', name:'Atlantic Salmon', desc:'Dill herb-marinated Atlantic salmon, served with seasonal grilled veg, French fries or mashed potato. Choice of creamy mushroom, garlic, or pepper sauce.', img: BASE+'DSC04828.jpg' },
+  { cat:'seafood', name:'Fish & Chips', desc:'Crumbed fried fish fillet served with tartar sauce, French fries & side salad.', img: BASE+'DSC_3761.jpg' },
+  { cat:'grill', name:'T-Bone Steak', desc:'Served with seasonal grilled or sautéed veg, French fries, jacket potato or mashed potato. Choice of creamy mushroom, garlic or pepper sauce.', img: BASE+'DSC05190.jpg' },
+  { cat:'poultry', name:'Fish & Chips', desc:'Crumbed fried fish fillet served with tartar sauce, French fries & side salad.', img: BASE+'DSC_4258.jpg' },
+  { cat:'chiff', name:"Chicken Mo", desc:"Our special breaded grilled chicken, paired with our own mushroom onion sauce.", img: BASE+'DSC_4652.jpg' },
+  { cat:'dessert', name:"Aama's Brownie Blast", desc:'Warm chocolate brownie served with vanilla ice cream, topped with nuts — the finest choice on our dessert menu.', img: BASE+'DSC04969.JPG' },
+  { cat:'dessert', name:"Aama's Crème Caramel", desc:'Crème caramel served with vanilla ice cream and topped with nuts. Very light after a delicious lunch.', img: BASE+'DSC04929.JPG' },
+  { cat:'dessert', name:'Warm Apple Pie', desc:"Warm apple pie on top vanilla ice cream to compliment your delicious food with our homemade irresistible desserts.", img: BASE+'DSC04929.JPG' },
+];
+
+function render(list) {
+  document.getElementById('menuGrid').innerHTML = list.map(i => `
+    <div class="card">
+      <img class="card-img" src="${i.img}" alt="${i.name}" onerror="this.src='https://amgedhigazi.github.io/AmassSteakHouse/img/Logo.png'" loading="lazy">
+      <div class="card-body">
+        <span class="card-tag">${i.cat}</span>
+        <h3 class="card-title">${i.name}</h3>
+        <p class="card-text">${i.desc}</p>
+      </div>
+    </div>`).join('');
+}
+
+function filter(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render(cat === 'all' ? items : items.filter(i => i.cat === cat));
+}
+
+render(items);
+</script>
+</body>
+</html>
